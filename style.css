@@ -1,7 +1,6 @@
-/* ===============================
-DIGIRAJA – DIGITAL STORE UI
-India's Digital Gear Decision Engine
-=============================== */
+/* =========================
+DIGIRAJA FINAL UI
+=========================*/
 
 *{
 margin:0;
@@ -11,41 +10,42 @@ font-family:system-ui,-apple-system,Segoe UI,Roboto;
 }
 
 body{
-background:#070909;
+background:#060808;
 color:#e5e7eb;
-overflow-x:hidden;
 }
 
 
-/* ===============================
+/* =========================
+MAIN CONTAINER
+=========================*/
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:14px;
+}
+
+
+/* =========================
 HEADER
-=============================== */
+=========================*/
 
 .header{
-position:sticky;
-top:0;
-z-index:1000;
-background:#0b0f0e;
-padding:14px;
-text-align:center;
-border-bottom:1px solid rgba(0,255,136,.2);
-}
-
-.logo{
+padding:14px 0;
 font-size:18px;
 font-weight:700;
 color:#00ff88;
 }
 
 
-/* ===============================
-HERO CARD
-=============================== */
+/* =========================
+HERO
+=========================*/
 
 .hero{
-margin:12px;
-padding:18px;
-border-radius:16px;
+border-radius:18px;
+padding:26px;
+margin-bottom:22px;
 
 background:
 linear-gradient(
@@ -55,104 +55,116 @@ rgba(255,255,255,.02)
 );
 
 border:1px solid rgba(0,255,136,.25);
-text-align:center;
 }
 
 .hero h1{
-font-size:18px;
+font-size:26px;
 color:#00ff88;
 margin-bottom:6px;
 }
 
 .hero p{
-font-size:13px;
+font-size:14px;
 color:#cbd5e1;
 }
 
 
-/* ===============================
+/* =========================
 CATEGORY GRID
-=============================== */
+=========================*/
 
 .category-grid{
 display:grid;
-gap:12px;
-padding:12px;
+gap:18px;
 
 /* MOBILE */
 grid-template-columns:repeat(3,1fr);
 }
 
+
 /* TABLET */
-@media(min-width:768px){
+@media(min-width:700px){
 .category-grid{
 grid-template-columns:repeat(4,1fr);
 }
 }
 
-/* LARGE DESKTOP */
-@media(min-width:1200px){
+
+/* DESKTOP */
+@media(min-width:1100px){
 .category-grid{
 grid-template-columns:repeat(5,1fr);
 }
 }
 
 
-/* ===============================
+/* =========================
 CATEGORY CARD
-=============================== */
+=========================*/
 
 .category-card{
 
 aspect-ratio:1/1;
 
 display:flex;
-flex-direction:column;
 align-items:center;
 justify-content:center;
 
-border-radius:16px;
+border-radius:20px;
 
 background:
 linear-gradient(
-145deg,
+160deg,
 rgba(255,255,255,.05),
 rgba(255,255,255,.01)
 );
 
 border:1px solid rgba(0,255,136,.25);
 
-font-size:13px;
 font-weight:600;
+font-size:14px;
+letter-spacing:.5px;
 
-transition:.25s;
+transition:.3s;
 cursor:pointer;
 }
 
+
+/* REAL STORE HOVER */
+
 .category-card:hover{
-transform:translateY(-4px);
-background:rgba(0,255,136,.12);
-box-shadow:0 0 18px rgba(0,255,136,.25);
+
+transform:translateY(-6px);
+
+background:
+linear-gradient(
+160deg,
+rgba(0,255,136,.18),
+rgba(0,255,136,.05)
+);
+
+box-shadow:
+0 0 25px rgba(0,255,136,.35);
 }
 
 
-/* ===============================
+/* =========================
 PRODUCT AREA
-=============================== */
+=========================*/
 
 #product-area{
-padding:14px;
+margin-top:25px;
 }
 
 
-/* ===============================
+/* =========================
 PRODUCT CARD
-=============================== */
+=========================*/
 
 .product-card{
 
-margin-bottom:14px;
-padding:16px;
+padding:18px;
+margin-bottom:16px;
 
 border-radius:16px;
 
@@ -167,27 +179,24 @@ border:1px solid rgba(0,255,136,.25);
 }
 
 .product-title{
-font-size:15px;
+font-size:16px;
 font-weight:600;
 margin-bottom:6px;
-color:#fff;
 }
 
 .product-spec{
 font-size:13px;
 color:#cbd5e1;
-margin-bottom:10px;
+margin-bottom:12px;
 }
 
 .buy-btn{
 display:inline-block;
-padding:8px 18px;
-border-radius:20px;
-
+padding:9px 20px;
+border-radius:22px;
 background:#00ff88;
 color:#000;
 font-weight:600;
-font-size:13px;
 text-decoration:none;
 }
 
@@ -196,48 +205,9 @@ background:#34d399;
 }
 
 
-/* ===============================
-SEARCH CARD
-=============================== */
-
-.search-card{
-margin:12px;
-padding:16px;
-border-radius:16px;
-border:1px solid rgba(0,255,136,.25);
-background:rgba(255,255,255,.04);
-}
-
-.search-input{
-width:100%;
-padding:10px;
-border-radius:10px;
-border:none;
-outline:none;
-background:#0b0f0e;
-color:#fff;
-}
-
-
-/* ===============================
-STORE BIO
-=============================== */
-
-.store-bio{
-margin:12px;
-padding:18px;
-border-radius:16px;
-border:1px solid rgba(0,255,136,.25);
-background:rgba(255,255,255,.04);
-font-size:13px;
-line-height:1.6;
-color:#cbd5e1;
-}
-
-
-/* ===============================
+/* =========================
 SCROLLBAR
-=============================== */
+=========================*/
 
 ::-webkit-scrollbar{
 width:6px;
@@ -246,25 +216,4 @@ width:6px;
 ::-webkit-scrollbar-thumb{
 background:#00ff88;
 border-radius:10px;
-}
-
-
-/* ===============================
-ANIMATION
-=============================== */
-
-.category-card,
-.product-card{
-animation:fadeIn .4s ease;
-}
-
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(10px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
 }
