@@ -1,57 +1,108 @@
-import { UI } from "./core/ui.js";
+/* =====================================================
+DIGIRAJA UNIVERSAL APP ENGINE
+===================================================== */
 
-/* -----------------------------
-   GET CATEGORY FROM URL
-------------------------------*/
+document.addEventListener("DOMContentLoaded", function(){
 
-function getCategory(){
+/* =========================
+DRAWER SYSTEM
+========================= */
 
- const params =
-   new URLSearchParams(window.location.search);
+const menuBtn = document.getElementById("menuBtn");
+const drawer = document.getElementById("drawer");
+const overlay = document.getElementById("overlay");
 
- return params.get("cat") || "editing";
+if(menuBtn && drawer && overlay){
+
+menuBtn.addEventListener("click", function(){
+drawer.classList.toggle("active");
+overlay.classList.toggle("active");
+document.body.classList.toggle("no-scroll");
+});
+
+overlay.addEventListener("click", function(){
+drawer.classList.remove("active");
+overlay.classList.remove("active");
+document.body.classList.remove("no-scroll");
+});
+
 }
 
-/* -----------------------------
-   LOAD CATEGORY DATA
-------------------------------*/
 
-async function loadApps(){
+/* =========================
+BOTTOM NAV ACTIVE AUTO
+========================= */
 
- const category = getCategory();
+const bottomItems = document.querySelectorAll(".bottom-item");
+const currentPath = window.location.pathname;
 
- const res =
-   await fetch(`./data/${category}.json`);
+bottomItems.forEach(item=>{
+const link = item.getAttribute("href");
 
- const apps = await res.json();
+if(link === currentPath){
+item.classList.add("active");
+}
+});
 
- render(apps, category);
+
+/* =========================
+SAFE EXTERNAL LINKS
+========================= */
+
+document.querySelectorAll("a[target='_blank']")
+.forEach(link=>{
+link.setAttribute("rel","noopener noreferrer");
+});
+
+});
+
+
+/* =====================================================
+SOURCE LOGO FETCH ENGINE
+ZERO IMAGE HOSTING
+===================================================== */
+
+function getSourceLogo(source){
+
+const sources = {
+
+amazon:"amazon.in",
+flipkart:"flipkart.com",
+envato:"envato.com",
+udemy:"udemy.com",
+hostinger:"hostinger.in",
+shopify:"shopify.com",
+canva:"canva.com",
+appsumo:"appsumo.com"
+
+};
+
+const domain = sources[source];
+
+if(!domain){
+return "https://www.google.com/s2/favicons?sz=128&domain=google.com";
 }
 
-/* -----------------------------
-   LOAD CATEGORY MENU
-------------------------------*/
-
-async function loadCategories(){
-
- const res =
-   await fetch("./data/categories.json");
-
- return await res.json();
+return `https://www.google.com/s2/favicons?sz=128&domain=${domain}`;
 }
 
-/* -----------------------------
-   RENDER APP
-------------------------------*/
 
-async function render(apps, activeCat){
+/* =====================================================
+SERVICE WORKER REGISTER
+===================================================== */
 
- const categories = await loadCategories();
+if("serviceWorker" in navigator){
 
- document.getElementById("app").innerHTML =
-   UI.navbar(categories, activeCat) +
-   UI.grid(apps) +
-   UI.footer();
+window.addEventListener("load",function(){
+
+navigator.serviceWorker.register("/sw.js")
+.then(()=>{
+console.log("DigiRaja SW Registered");
+})
+.catch(()=>{
+console.log("SW Failed");
+});
+
+});
+
 }
-
-loadApps();
