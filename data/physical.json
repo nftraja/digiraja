@@ -1,0 +1,41 @@
+[
+{
+"name":"Apple MacBook Air M2",
+"description":"Ultra-thin powerful laptop ideal for creators, students and professionals.",
+"redirect":"/go/macbook-air-m2",
+"source":"amazon",
+"type":"Laptop"
+},
+
+{
+"name":"Sony WH-1000XM5 Headphones",
+"description":"Industry leading wireless noise cancelling headphones.",
+"redirect":"/go/sony-xm5",
+"source":"amazon",
+"type":"Audio"
+},
+
+{
+"name":"Logitech MX Master 3S Mouse",
+"description":"Premium productivity mouse for designers and developers.",
+"redirect":"/go/logitech-mx3s",
+"source":"amazon",
+"type":"Accessory"
+},
+
+{
+"name":"Samsung 27\" 4K Monitor",
+"description":"High resolution monitor perfect for editing and multitasking.",
+"redirect":"/go/samsung-4k-monitor",
+"source":"amazon",
+"type":"Monitor"
+},
+
+{
+"name":"ASUS TUF Gaming Laptop",
+"description":"High performance gaming laptop built for heavy workloads.",
+"redirect":"/go/asus-tuf-gaming",
+"source":"amazon",
+"type":"Gaming"
+}
+]
