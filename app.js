@@ -1,108 +1,122 @@
 /* =====================================================
-DIGIRAJA UNIVERSAL APP ENGINE
+   DIGIRAJA – UNIVERSAL STORE ENGINE
+   Physical + Digital + SaaS + Deals
 ===================================================== */
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", () => {
 
-/* =========================
-DRAWER SYSTEM
-========================= */
+  const container = document.getElementById("productContainer");
 
-const menuBtn = document.getElementById("menuBtn");
-const drawer = document.getElementById("drawer");
-const overlay = document.getElementById("overlay");
+  if(!container) return;
 
-if(menuBtn && drawer && overlay){
+  const dataFile = container.dataset.json;
 
-menuBtn.addEventListener("click", function(){
-drawer.classList.toggle("active");
-overlay.classList.toggle("active");
-document.body.classList.toggle("no-scroll");
-});
-
-overlay.addEventListener("click", function(){
-drawer.classList.remove("active");
-overlay.classList.remove("active");
-document.body.classList.remove("no-scroll");
-});
-
-}
-
-
-/* =========================
-BOTTOM NAV ACTIVE AUTO
-========================= */
-
-const bottomItems = document.querySelectorAll(".bottom-item");
-const currentPath = window.location.pathname;
-
-bottomItems.forEach(item=>{
-const link = item.getAttribute("href");
-
-if(link === currentPath){
-item.classList.add("active");
-}
-});
-
-
-/* =========================
-SAFE EXTERNAL LINKS
-========================= */
-
-document.querySelectorAll("a[target='_blank']")
-.forEach(link=>{
-link.setAttribute("rel","noopener noreferrer");
-});
-
-});
+  if(!dataFile) return;
 
 
 /* =====================================================
-SOURCE LOGO FETCH ENGINE
-ZERO IMAGE HOSTING
+   FETCH PRODUCTS
 ===================================================== */
 
-function getSourceLogo(source){
+fetch(dataFile,{cache:"no-store"})
+.then(res => res.json())
+.then(products => {
 
-const sources = {
+if(!Array.isArray(products)) return;
 
-amazon:"amazon.in",
-flipkart:"flipkart.com",
-envato:"envato.com",
-udemy:"udemy.com",
-hostinger:"hostinger.in",
-shopify:"shopify.com",
-canva:"canva.com",
-appsumo:"appsumo.com"
+renderProducts(products);
 
-};
-
-const domain = sources[source];
-
-if(!domain){
-return "https://www.google.com/s2/favicons?sz=128&domain=google.com";
-}
-
-return `https://www.google.com/s2/favicons?sz=128&domain=${domain}`;
-}
-
-
-/* =====================================================
-SERVICE WORKER REGISTER
-===================================================== */
-
-if("serviceWorker" in navigator){
-
-window.addEventListener("load",function(){
-
-navigator.serviceWorker.register("/sw.js")
-.then(()=>{
-console.log("DigiRaja SW Registered");
 })
-.catch(()=>{
-console.log("SW Failed");
+.catch(err=>{
+console.error("Product Load Error:",err);
 });
 
-});
+
+/* =====================================================
+   PRODUCT RENDER
+===================================================== */
+
+function renderProducts(products){
+
+container.innerHTML = products.map(product => {
+
+const logo = getLogo(product.link);
+const image = getImage(product);
+
+return `
+
+<div class="product-card">
+
+<div class="product-top">
+
+<img 
+src="${image}" 
+loading="lazy"
+onerror="this.src='${logo}'"
+>
+
+</div>
+
+<div class="product-body">
+
+<div class="product-title">
+${product.name}
+</div>
+
+<div class="product-desc">
+${product.description}
+</div>
+
+<div class="product-bottom">
+
+<a href="/go/${product.slug}.html"
+class="buy-btn">
+
+View Deal →
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}).join("");
 
 }
+
+
+/* =====================================================
+   AUTO DOMAIN LOGO FETCH
+===================================================== */
+
+function getLogo(url){
+
+try{
+const domain = new URL(url).hostname;
+return `https://logo.clearbit.com/${domain}`;
+}catch{
+return "";
+}
+
+}
+
+
+/* =====================================================
+   PRODUCT IMAGE FALLBACK
+===================================================== */
+
+function getImage(product){
+
+if(product.image && product.image !== "")
+return product.image;
+
+return getLogo(product.link);
+
+}
+
+
+});
