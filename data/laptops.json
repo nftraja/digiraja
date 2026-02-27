@@ -1,0 +1,13 @@
+[
+  {
+    "id": "lap001",
+    "name": "Performance Laptop",
+    "brand": "Generic",
+    "category": "Laptops",
+    "price": "₹55,000",
+    "tag": "Productivity",
+    "rating": "4.4",
+    "affiliate": "https://amazon.in",
+    "platform": "Amazon"
+  }
+]
