@@ -1,0 +1,13 @@
+[
+  {
+    "id": "hp001",
+    "name": "Wireless Headphones",
+    "brand": "Generic",
+    "category": "Headphones",
+    "price": "₹2,499",
+    "tag": "Audio",
+    "rating": "4.2",
+    "affiliate": "https://amazon.in",
+    "platform": "Amazon"
+  }
+]
