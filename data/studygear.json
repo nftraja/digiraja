@@ -1,0 +1,13 @@
+[
+  {
+    "id": "study001",
+    "name": "Digital Study Kit",
+    "brand": "Generic",
+    "category": "Study Gear",
+    "price": "₹999",
+    "tag": "Students",
+    "rating": "4.3",
+    "affiliate": "https://amazon.in",
+    "platform": "Amazon"
+  }
+]
