@@ -1,12 +1,12 @@
 [
 {
-"id":"youtube-partner",
+"id":"youtube",
 "title":"YouTube Creator Platform",
 "category":"video-creation",
 "brand":"YouTube",
 "price":"Free",
 "rating":"4.9",
-"redirect":"/go/youtube.html",
+"redirect":"/go/redirect.html?id=youtube",
 "badge":"Creator Start"
 },
 
@@ -17,7 +17,7 @@
 "brand":"CapCut",
 "price":"₹599/month",
 "rating":"4.8",
-"redirect":"/go/capcut.html",
+"redirect":"/go/redirect.html?id=capcut-pro",
 "badge":"Trending"
 },
 
@@ -28,7 +28,7 @@
 "brand":"Epidemic",
 "price":"$15/month",
 "rating":"4.7",
-"redirect":"/go/epidemic.html",
+"redirect":"/go/redirect.html?id=epidemic-sound",
 "badge":"YouTuber Choice"
 }
 ]
