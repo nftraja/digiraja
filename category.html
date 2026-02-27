@@ -14,12 +14,10 @@
 
 <body>
 
-<!-- ================= OVERLAY ================= -->
-
+<!-- OVERLAY -->
 <div class="drawer-overlay" id="overlay"></div>
 
-<!-- ================= DRAWER ================= -->
-
+<!-- DRAWER -->
 <div class="drawer" id="drawer">
 
 <a href="/">🏠 Home</a>
@@ -34,27 +32,18 @@
 </div>
 
 
-<!-- ================= HEADER ================= -->
-
+<!-- HEADER -->
 <header class="app-header">
-
 <button class="menu-btn" id="menuBtn">☰</button>
-
-<div class="logo" id="pageTitle">
-Category
-</div>
-
+<div class="logo" id="pageTitle">Category</div>
 </header>
 
 
 
-<!-- ================= MAIN ================= -->
-
+<!-- MAIN -->
 <main class="main-content">
 
-
-<!-- ================= CATEGORY HERO ================= -->
-
+<!-- HERO -->
 <div class="glass-card">
 
 <div class="card-title" id="categoryHeading">
@@ -70,30 +59,25 @@ by DigiRaja Store.
 </div>
 
 
-
-<!-- ================= SUB CATEGORY STRIP ================= -->
-
+<!-- SUB CATEGORY -->
 <div class="grid" id="subCategories"></div>
 
 
-
-<!-- ================= PRODUCT AREA ================= -->
-
+<!-- PRODUCT TITLE -->
 <div class="glass-card">
 <div class="card-title">🛒 Available Products</div>
 </div>
 
-<div id="storeContainer"
-class="product-grid">
-</div>
 
+<!-- PRODUCTS -->
+<div id="storeContainer"
+class="product-grid"></div>
 
 </main>
 
 
 
-<!-- ================= BOTTOM NAV ================= -->
-
+<!-- BOTTOM NAV -->
 <nav class="bottom-nav">
 
 <a href="/" class="bottom-item">
@@ -101,26 +85,22 @@ class="product-grid">
 <small>Home</small>
 </a>
 
-<a href="/category.html?type=physical"
-class="bottom-item">
+<a href="/category.html?type=physical" class="bottom-item">
 <span>📦</span>
 <small>Store</small>
 </a>
 
-<a href="/category.html?type=digital"
-class="bottom-item">
+<a href="/category.html?type=digital" class="bottom-item">
 <span>💻</span>
 <small>Digital</small>
 </a>
 
-<a href="/category.html?type=saas"
-class="bottom-item">
+<a href="/category.html?type=saas" class="bottom-item">
 <span>☁</span>
 <small>SaaS</small>
 </a>
 
-<a href="/category.html?type=deals"
-class="bottom-item">
+<a href="/category.html?type=deals" class="bottom-item">
 <span>🔥</span>
 <small>Deals</small>
 </a>
@@ -132,23 +112,24 @@ class="bottom-item">
 <script src="/app.js"></script>
 
 
-
 <!-- =====================================================
-     ✅ EXPANDED CATEGORY ENGINE
+     ✅ FINAL CATEGORY ENGINE
 ===================================================== -->
 
 <script>
 
 document.addEventListener("DOMContentLoaded",()=>{
 
-const params = new URLSearchParams(window.location.search);
-const type = params.get("type");
+/* ================= PARAM SAFE ================= */
 
-if(!type){
-document.getElementById("categoryHeading")
-.innerText="Invalid Category";
-return;
-}
+const params=new URLSearchParams(location.search);
+
+let type=
+params.get("type") ||
+params.get("cat") ||
+params.get("category");
+
+if(!type) type="physical";
 
 
 /* ================= TITLE ================= */
@@ -156,21 +137,20 @@ return;
 const titleMap={
 physical:"Physical Products",
 digital:"Digital Products",
-saas:"SaaS Platforms",
-services:"Online Services",
+saas:"SaaS Tools",
+services:"Services",
 creator:"Creator Tools",
 deals:"Best Deals"
 };
 
 document.getElementById("pageTitle")
-.innerText = titleMap[type];
+.innerText=titleMap[type] || "Store";
 
 document.getElementById("categoryHeading")
-.innerText = titleMap[type];
+.innerText=titleMap[type] || "Store";
 
 
-
-/* ================= JSON MAP ================= */
+/* ================= JSON SOURCE ================= */
 
 const jsonMap={
 physical:"/data/physical.json",
@@ -181,13 +161,14 @@ creator:"/data/creator.json",
 deals:"/data/deals.json"
 };
 
-document
-.getElementById("storeContainer")
-.dataset.json = jsonMap[type];
+const container=
+document.getElementById("storeContainer");
+
+container.dataset.json=
+jsonMap[type] || "/data/physical.json";
 
 
-
-/* ================= SUB CATEGORY UI ================= */
+/* ================= SUB CATEGORY ================= */
 
 const subMap={
 
@@ -244,9 +225,7 @@ if(subMap[type]){
 subContainer.innerHTML=
 subMap[type]
 .map(name=>`
-<div class="category-box">
-${name}
-</div>
+<div class="category-box">${name}</div>
 `).join("");
 
 }
