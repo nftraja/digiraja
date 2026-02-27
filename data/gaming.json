@@ -1,0 +1,13 @@
+[
+  {
+    "id": "game001",
+    "name": "Gaming Gear Combo",
+    "brand": "Generic",
+    "category": "Gaming",
+    "price": "₹4,999",
+    "tag": "Gaming",
+    "rating": "4.6",
+    "affiliate": "https://amazon.in",
+    "platform": "Amazon"
+  }
+]
