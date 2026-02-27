@@ -6,7 +6,7 @@
 "brand":"Udemy",
 "price":"₹499",
 "rating":"4.7",
-"redirect":"/go/udemy-web-dev.html",
+"redirect":"/go/redirect.html?id=udemy-web-dev",
 "badge":"Best Seller"
 },
 
@@ -17,7 +17,7 @@
 "brand":"Envato",
 "price":"₹1,499/month",
 "rating":"4.8",
-"redirect":"/go/envato-elements.html",
+"redirect":"/go/redirect.html?id=envato-elements",
 "badge":"Creator Favorite"
 },
 
@@ -28,18 +28,7 @@
 "brand":"Canva",
 "price":"₹3,999/year",
 "rating":"4.9",
-"redirect":"/go/canva-pro.html",
+"redirect":"/go/redirect.html?id=canva-pro",
 "badge":"Trending"
-},
-
-{
-"id":"wordpress-theme-pack",
-"title":"Premium WordPress Theme Bundle",
-"category":"themes",
-"brand":"ThemeForest",
-"price":"₹2,999",
-"rating":"4.6",
-"redirect":"/go/wp-theme-pack.html",
-"badge":"Popular"
 }
 ]
