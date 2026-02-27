@@ -1,21 +1,195 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DigiRaja Explorer</title>
+<title>DigiRaja – Discovery Platform</title>
 
-<link rel="stylesheet" href="style.css">
+<meta name="description"
+content="DigiRaja is a universal discovery platform helping users explore apps, tools, services and digital platforms across multiple ecosystems.">
+
+<link rel="stylesheet" href="/style.css">
+<meta name="theme-color" content="#0f0c0a">
 
 </head>
 
 <body>
 
-<div id="app"></div>
+<!-- ===============================
+OVERLAY
+=============================== -->
+<div class="drawer-overlay" id="overlay"></div>
 
-<script type="module" src="app.js"></script>
+<!-- ===============================
+DRAWER
+=============================== -->
+<div class="drawer" id="drawer">
+
+<a href="/">🏠 Home</a>
+<a href="/categories.html">📂 Categories</a>
+
+<a href="/category.html?cat=apps">📱 Apps</a>
+<a href="/category.html?cat=tools">🧰 Tools</a>
+<a href="/category.html?cat=services">⚙️ Services</a>
+<a href="/category.html?cat=ai-tools">🤖 AI Tools</a>
+
+<a href="/about.html">ℹ️ About</a>
+<a href="/privacy.html">🔒 Privacy</a>
+
+</div>
+
+<!-- ===============================
+HEADER
+=============================== -->
+<header class="app-header">
+<button class="menu-btn" id="menuBtn">☰</button>
+<div class="logo">DigiRaja</div>
+</header>
+
+<!-- ===============================
+MAIN CONTENT
+=============================== -->
+<main class="main-content">
+
+<!-- INTRO -->
+<div class="glass-card">
+<div class="card-title">
+🚀 Universal Discovery Platform
+</div>
+
+<div class="card-desc">
+Discover trusted apps, digital tools, online services,
+AI platforms and web ecosystems — structured in one
+powerful discovery experience.
+</div>
+</div>
+
+
+<!-- ===============================
+FEATURED APPS
+=============================== -->
+
+<div class="glass-card">
+<div class="card-title">⭐ Featured Platforms</div>
+<div class="card-desc">
+Handpicked digital platforms and trending discoveries.
+</div>
+</div>
+
+<div id="featuredContainer"
+     data-json="/data/featured.json">
+</div>
+
+
+<!-- ===============================
+TRENDING
+=============================== -->
+
+<div class="glass-card">
+<div class="card-title">🔥 Trending Now</div>
+<div class="card-desc">
+Popular tools and platforms users are exploring.
+</div>
+</div>
+
+<div id="trendingContainer"
+     data-json="/data/trending.json">
+</div>
+
+
+<!-- ===============================
+CATEGORIES
+=============================== -->
+
+<div class="glass-card">
+<div class="card-title">📂 Explore Categories</div>
+<div class="card-desc">
+Browse discovery ecosystems by category.
+</div>
+</div>
+
+<div class="grid" id="categoryGrid">
+
+<a href="/category.html?cat=apps"
+class="category-box">
+<span>📱</span>
+Apps
+</a>
+
+<a href="/category.html?cat=tools"
+class="category-box">
+<span>🧰</span>
+Tools
+</a>
+
+<a href="/category.html?cat=services"
+class="category-box">
+<span>⚙️</span>
+Services
+</a>
+
+<a href="/category.html?cat=ai-tools"
+class="category-box">
+<span>🤖</span>
+AI Tools
+</a>
+
+<a href="/category.html?cat=earning"
+class="category-box">
+<span>💰</span>
+Earning
+</a>
+
+<a href="/category.html?cat=productivity"
+class="category-box">
+<span>📊</span>
+Productivity
+</a>
+
+</div>
+
+</main>
+
+
+<!-- ===============================
+BOTTOM NAV
+=============================== -->
+
+<nav class="bottom-nav">
+
+<a href="/" class="bottom-item active">
+<span>🏠</span>
+<small>Home</small>
+</a>
+
+<a href="/categories.html" class="bottom-item">
+<span>📂</span>
+<small>Categories</small>
+</a>
+
+<a href="/category.html?cat=apps"
+class="bottom-item">
+<span>📱</span>
+<small>Apps</small>
+</a>
+
+<a href="/category.html?cat=tools"
+class="bottom-item">
+<span>🧰</span>
+<small>Tools</small>
+</a>
+
+<a href="/category.html?cat=ai-tools"
+class="bottom-item">
+<span>🤖</span>
+<small>AI</small>
+</a>
+
+</nav>
+
+<script src="/app.js"></script>
 
 </body>
 </html>
