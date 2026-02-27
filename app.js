@@ -1,7 +1,6 @@
 /* =====================================================
-   DIGIRAJA UNIVERSAL STORE ENGINE
-   Physical + Digital + SaaS + Deals
-   JSON Driven Affiliate Store
+   DIGIRAJA FINAL UNIVERSAL STORE ENGINE
+   Stable Version (NO AUTO IMAGE FETCH)
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -14,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const drawer = document.getElementById("drawer");
   const overlay = document.getElementById("overlay");
 
-  if(menuBtn && drawer && overlay){
+  if (menuBtn && drawer && overlay) {
 
     menuBtn.onclick = () => {
       drawer.classList.toggle("active");
@@ -30,104 +29,108 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
+
   /* ===============================
-     ACTIVE NAV AUTO DETECT
+     ACTIVE NAV DETECT
   =============================== */
 
   const currentPath = window.location.pathname;
-  document.querySelectorAll(".bottom-item").forEach(item=>{
-    if(item.getAttribute("href") === currentPath){
+
+  document.querySelectorAll(".bottom-item")
+  .forEach(item => {
+    if (item.getAttribute("href") === currentPath) {
       item.classList.add("active");
     }
   });
 
 
+
   /* =====================================================
-     🔥 DIGIRAJA DISCOVERY AUTO LOADER
+     STORE AUTO LOADER
   ===================================================== */
 
-  const storeContainer = document.getElementById("storeContainer");
+  const storeContainer =
+    document.getElementById("storeContainer");
 
-  if(storeContainer){
+  if (!storeContainer) return;
 
-    const jsonFile = storeContainer.dataset.json;
-    const category = storeContainer.dataset.category;
+  const jsonFile =
+    storeContainer.dataset.json;
 
-    fetch(jsonFile,{cache:"no-store"})
-    .then(res=>res.json())
-    .then(data=>{
+  if (!jsonFile) return;
 
-      let items = data;
+  fetch(jsonFile, { cache: "no-store" })
+    .then(res => res.json())
+    .then(data => {
 
-      if(category){
-        items = data.filter(
-          item => item.category === category
-        );
-      }
+      if (!Array.isArray(data) || !data.length) {
 
-      if(!items.length){
         storeContainer.innerHTML =
-        `<div class="glass-card">
-            No Products Found
-         </div>`;
+          `<div class="glass-card">
+             No Products Available
+           </div>`;
+
         return;
       }
 
       storeContainer.innerHTML =
-        items.map(productCard).join("");
+        data.map(productCard).join("");
 
     })
-    .catch(()=>{
-      storeContainer.innerHTML =
-      `<div class="glass-card">
-          Data Load Failed
-       </div>`;
-    });
+    .catch(() => {
 
-  }
+      storeContainer.innerHTML =
+        `<div class="glass-card">
+            Data Load Failed
+         </div>`;
+    });
 
 
 
   /* =====================================================
-     PRODUCT CARD UI
+     ✅ HIGH CONVERSION PRODUCT CARD
   ===================================================== */
 
-  function productCard(item){
+  function productCard(item) {
+
+    const image =
+      item.image
+      ? item.image
+      : "/assets/placeholder.webp";
 
     return `
     <div class="product-card">
 
-        <div class="product-image">
-            <img src="${item.image}" 
-                 loading="lazy"
-                 alt="${item.title}">
-            ${item.badge ?
-              `<div class="badge">${item.badge}</div>` : ""
-            }
+      <div class="product-image">
+        <img src="${image}"
+             loading="lazy"
+             alt="${item.title}">
+      </div>
+
+      <div class="product-body">
+
+        <div class="brand">
+          ${item.brand || ""}
         </div>
 
-        <div class="product-body">
-
-            <div class="brand">${item.brand || ""}</div>
-
-            <div class="title">
-                ${item.title}
-            </div>
-
-            <div class="rating">
-                ⭐ ${item.rating || "4.5"}
-            </div>
-
-            <div class="price">
-                ${item.price || ""}
-            </div>
-
-            <a href="${item.redirect}"
-               class="buy-btn">
-               Buy Now →
-            </a>
-
+        <div class="title">
+          ${item.title || ""}
         </div>
+
+        <div class="rating">
+          ⭐ ${item.rating || "4.5"}
+        </div>
+
+        <div class="price">
+          ${item.price || ""}
+        </div>
+
+        <a href="${item.redirect}"
+           class="buy-btn">
+           View Deal →
+        </a>
+
+      </div>
 
     </div>
     `;
@@ -140,12 +143,12 @@ document.addEventListener("DOMContentLoaded", () => {
   ===================================================== */
 
   document.querySelectorAll("a[target='_blank']")
-  .forEach(link=>{
-    link.setAttribute(
-      "rel",
-      "noopener noreferrer"
-    );
-  });
+    .forEach(link => {
+      link.setAttribute(
+        "rel",
+        "noopener noreferrer"
+      );
+    });
 
 });
 
@@ -155,11 +158,19 @@ document.addEventListener("DOMContentLoaded", () => {
    SERVICE WORKER REGISTER
 ===================================================== */
 
-if("serviceWorker" in navigator){
-  window.addEventListener("load",()=>{
+if ("serviceWorker" in navigator) {
+
+  window.addEventListener("load", () => {
+
     navigator.serviceWorker
-    .register("/sw.js")
-    .then(()=>console.log("DigiRaja SW Ready"))
-    .catch(()=>console.log("SW Failed"));
+      .register("/sw.js")
+      .then(() =>
+        console.log("DigiRaja SW Registered")
+      )
+      .catch(() =>
+        console.log("SW Registration Failed")
+      );
+
   });
+
 }
