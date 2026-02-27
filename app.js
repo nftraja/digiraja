@@ -91,52 +91,47 @@ document.addEventListener("DOMContentLoaded", () => {
      ✅ HIGH CONVERSION PRODUCT CARD
   ===================================================== */
 
-  function productCard(item) {
+  function productCard(item){
 
-    const image =
-      item.image
-      ? item.image
-      : "/assets/placeholder.webp";
+return `
+<div class="product-card">
 
-    return `
-    <div class="product-card">
+${item.image ? `
+<div class="product-image">
+<img src="${item.image}"
+loading="lazy"
+alt="${item.title}">
+</div>
+` : ``}
 
-      <div class="product-image">
-        <img src="${image}"
-             loading="lazy"
-             alt="${item.title}">
-      </div>
+<div class="product-body">
 
-      <div class="product-body">
+<div class="brand">
+${item.brand || ""}
+</div>
 
-        <div class="brand">
-          ${item.brand || ""}
-        </div>
+<div class="title">
+${item.title || ""}
+</div>
 
-        <div class="title">
-          ${item.title || ""}
-        </div>
+<div class="rating">
+⭐ ${item.rating || "4.5"}
+</div>
 
-        <div class="rating">
-          ⭐ ${item.rating || "4.5"}
-        </div>
+<div class="price">
+${item.price || ""}
+</div>
 
-        <div class="price">
-          ${item.price || ""}
-        </div>
+<a href="${item.redirect}"
+class="buy-btn">
+View Deal →
+</a>
 
-        <a href="${item.redirect}"
-           class="buy-btn">
-           View Deal →
-        </a>
+</div>
 
-      </div>
-
-    </div>
-    `;
-  }
-
-
+</div>
+`;
+}
 
   /* =====================================================
      SAFE EXTERNAL LINKS
