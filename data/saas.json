@@ -1,0 +1,45 @@
+[
+{
+"id":"hostinger-hosting",
+"title":"Hostinger Web Hosting",
+"category":"hosting",
+"brand":"Hostinger",
+"price":"₹149/month",
+"rating":"4.8",
+"redirect":"/go/hostinger.html",
+"badge":"High Commission"
+},
+
+{
+"id":"shopify",
+"title":"Shopify Store Builder",
+"category":"website-builder",
+"brand":"Shopify",
+"price":"$29/month",
+"rating":"4.7",
+"redirect":"/go/shopify.html",
+"badge":"Recurring Income"
+},
+
+{
+"id":"mailchimp",
+"title":"Mailchimp Email Marketing",
+"category":"email-marketing",
+"brand":"Mailchimp",
+"price":"Free / Paid",
+"rating":"4.6",
+"redirect":"/go/mailchimp.html",
+"badge":"Business Tool"
+},
+
+{
+"id":"semrush",
+"title":"SEMrush SEO Toolkit",
+"category":"seo-tools",
+"brand":"SEMrush",
+"price":"$129/month",
+"rating":"4.8",
+"redirect":"/go/semrush.html",
+"badge":"Pro Tool"
+}
+]
