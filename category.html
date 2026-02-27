@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -8,70 +8,68 @@
 <title>DigiRaja Category</title>
 
 <link rel="stylesheet" href="/style.css">
+
 <meta name="theme-color" content="#0f0c0a">
 
 </head>
 
 <body>
 
-<!-- ===============================
-OVERLAY
-=============================== -->
+<!-- OVERLAY -->
 <div class="drawer-overlay" id="overlay"></div>
 
-<!-- ===============================
-DRAWER
-=============================== -->
+<!-- DRAWER -->
 <div class="drawer" id="drawer">
 
-<a href="javascript:history.back()">⬅ Back</a>
-
 <a href="/">🏠 Home</a>
-<a href="/categories.html">📂 Categories</a>
 
-<a href="/category.html?cat=apps">📱 Apps</a>
-<a href="/category.html?cat=tools">🧰 Tools</a>
-<a href="/category.html?cat=services">⚙️ Services</a>
-<a href="/category.html?cat=ai-tools">🤖 AI Tools</a>
+<a href="/category.html?cat=physical">📦 Physical Products</a>
+<a href="/category.html?cat=digital">💾 Digital Products</a>
+<a href="/category.html?cat=saas">☁️ SaaS Platforms</a>
+<a href="/category.html?cat=services">🌐 Online Services</a>
+<a href="/category.html?cat=creator">🎨 Creator Assets</a>
+<a href="/category.html?cat=deals">🔥 Deals & Offers</a>
+
+<a href="/pages/about.html">ℹ️ About</a>
+<a href="/pages/contact.html">✉️ Contact</a>
+<a href="/pages/privacy.html">🔒 Privacy</a>
+<a href="/pages/terms.html">📜 Terms</a>
+<a href="/pages/disclaimer.html">⚠️ Disclaimer</a>
 
 </div>
 
-<!-- ===============================
-HEADER
-=============================== -->
+<!-- HEADER -->
 <header class="app-header">
+
 <button class="menu-btn" id="menuBtn">☰</button>
+
 <div class="logo" id="categoryTitle">
-Category
-</div>
-</header>
-
-<!-- ===============================
-MAIN
-=============================== -->
-<main class="main-content">
-
-<!-- CATEGORY INTRO -->
-<div class="glass-card">
-<div class="card-title" id="categoryHeading">
 Loading...
 </div>
 
-<div class="card-desc">
-Explore verified platforms, apps, tools and
-digital services within this discovery category.
-</div>
+</header>
+
+<!-- MAIN -->
+<main class="main-content">
+
+<div class="glass-card">
+
+<div class="card-title" id="categoryHeading">
+Loading Products...
 </div>
 
-<!-- DISCOVERY LIST -->
+<div class="card-desc">
+Explore curated platforms and products from trusted marketplaces.
+</div>
+
+</div>
+
+<!-- AUTO PRODUCT LOAD -->
 <div id="dataContainer"></div>
 
 </main>
 
-
-<!-- ===============================
-BOTTOM NAV
-=============================== -->
+<!-- BOTTOM NAV -->
 <nav class="bottom-nav">
 
 <a href="/" class="bottom-item">
@@ -79,94 +77,103 @@ BOTTOM NAV
 <small>Home</small>
 </a>
 
-<a href="/categories.html" class="bottom-item">
-<span>📂</span>
-<small>Categories</small>
+<a href="/category.html?cat=physical" class="bottom-item">
+<span>📦</span>
+<small>Products</small>
 </a>
 
-<a href="/category.html?cat=apps"
-class="bottom-item">
-<span>📱</span>
-<small>Apps</small>
+<a href="/category.html?cat=digital" class="bottom-item">
+<span>💾</span>
+<small>Digital</small>
 </a>
 
-<a href="/category.html?cat=tools"
-class="bottom-item">
-<span>🧰</span>
-<small>Tools</small>
+<a href="/category.html?cat=saas" class="bottom-item">
+<span>☁️</span>
+<small>SaaS</small>
 </a>
 
-<a href="/category.html?cat=ai-tools"
-class="bottom-item">
-<span>🤖</span>
-<small>AI</small>
+<a href="/category.html?cat=deals" class="bottom-item">
+<span>🔥</span>
+<small>Deals</small>
 </a>
 
 </nav>
 
 <script src="/app.js"></script>
 
-
-<!-- ===============================
-CATEGORY LOADER
-=============================== -->
 <script>
 
-document.addEventListener("DOMContentLoaded", function(){
+/* ===============================
+CATEGORY AUTO LOADER
+=============================== */
+
+document.addEventListener("DOMContentLoaded",function(){
 
 const params = new URLSearchParams(window.location.search);
-let category = params.get("cat");
+const category = params.get("cat");
 
 if(!category){
-
-document.getElementById("categoryHeading")
-.innerText="Invalid Category";
-
+document.getElementById("categoryHeading").innerText="Invalid Category";
 return;
 }
 
-category = category.toLowerCase().trim();
+/* TITLE SET */
 
-document.getElementById("categoryTitle")
-.innerText = category;
+const title =
+category.charAt(0).toUpperCase() + category.slice(1);
 
-document.getElementById("categoryHeading")
-.innerText = category;
+document.getElementById("categoryTitle").innerText = title;
+document.getElementById("categoryHeading").innerText = title;
 
+/* JSON LOAD */
 
-/* ===========================
-LOAD CATEGORY JSON
-=========================== */
-
-fetch(`/data/${category}.json`,{
-cache:"no-store"
-})
-
-.then(res=>{
-if(!res.ok) throw new Error("JSON missing");
-return res.json();
-})
-
+fetch(`/data/${category}.json`,{cache:"no-store"})
+.then(res=>res.json())
 .then(data=>{
 
-if(!Array.isArray(data)) return;
+if(!Array.isArray(data)){
+document.getElementById("dataContainer").innerHTML=
+'<div class="glass-card">No Data Found</div>';
+return;
+}
 
-document.getElementById("dataContainer")
-.innerHTML = data.map(item=>`
+document.getElementById("dataContainer").innerHTML =
+data.map(item=>`
 
-<div class="list-card"
-onclick="window.open('${item.link}','_blank')">
+<div class="product-card"
+onclick="window.location='${item.redirect}'">
 
-<div class="list-title">
+<div class="product-top">
+
+<img
+class="product-logo"
+src="${getSourceLogo(item.source)}"
+>
+
+<div>
+
+<div class="product-title">
 ${item.name}
 </div>
 
-<div class="list-desc">
+<div class="product-desc">
 ${item.description}
 </div>
 
-<div class="btn">
-Open Platform
+</div>
+
+</div>
+
+<div class="product-bottom">
+
+<span class="product-badge">
+${item.type || "Product"}
+</span>
+
+<div class="product-btn">
+View Deal →
+</div>
+
 </div>
 
 </div>
@@ -174,13 +181,9 @@ Open Platform
 `).join("");
 
 })
-
 .catch(()=>{
-
-document.getElementById("dataContainer")
-.innerHTML=
-'<div class="list-card"><div class="list-title">No Data Found</div></div>';
-
+document.getElementById("dataContainer").innerHTML=
+'<div class="glass-card">Failed to load data</div>';
 });
 
 });
