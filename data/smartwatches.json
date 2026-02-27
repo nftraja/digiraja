@@ -1,0 +1,13 @@
+[
+  {
+    "id": "sw001",
+    "name": "Smart Fitness Watch",
+    "brand": "Generic",
+    "category": "Smartwatch",
+    "price": "₹3,999",
+    "tag": "Fitness",
+    "rating": "4.0",
+    "affiliate": "https://amazon.in",
+    "platform": "Amazon"
+  }
+]
