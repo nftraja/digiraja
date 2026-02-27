@@ -1,75 +1,73 @@
-
-const productArea =
-document.getElementById("product-area");
+const BASE_PATH="/digiraja/";
 
 
-/* LOAD CATEGORY */
+/* CATEGORY MASTER */
+
+const categories=[
+"laptops",
+"mobiles",
+"headphones",
+"gaming",
+"cameras",
+"tablets",
+"smartwatches",
+"studygear",
+"accessories"
+];
+
+
+const grid=document.getElementById("category-grid");
+
+categories.forEach(cat=>{
+
+const div=document.createElement("div");
+
+div.className="category-card";
+div.innerText=cat.toUpperCase();
+
+div.onclick=()=>loadCategory(cat);
+
+grid.appendChild(div);
+
+});
+
+
+/* LOAD PRODUCTS */
 
 async function loadCategory(category){
 
-productArea.innerHTML =
-"<p style='padding:20px'>Loading...</p>";
+const area=document.getElementById("product-area");
+
+area.innerHTML="Loading...";
 
 try{
 
-const res =
-await fetch(`data/${category}.json`);
+const res=await fetch(
+BASE_PATH+"data/"+category+".json"
+);
 
-const data = await res.json();
+const data=await res.json();
 
-renderProducts(data.products);
+area.innerHTML="";
 
-}
-catch(e){
+data.products.forEach(p=>{
 
-productArea.innerHTML =
-"<p style='padding:20px'>Category Failed</p>";
-
-}
-
-}
-
-
-/* RENDER PRODUCTS */
-
-function renderProducts(products){
-
-productArea.innerHTML = "";
-
-products.forEach(p => {
-
-const card = document.createElement("div");
-
-card.className="product-card";
-
-card.innerHTML = `
-<div>
-<div class="product-title">${p.name}</div>
-
-<div class="product-desc">
-${p.desc}
-</div>
-</div>
-
-<div>
-<div class="price">${p.price}</div>
-
-<a href="${p.link}"
-target="_blank"
-rel="nofollow sponsored"
-class="buy-btn">
+area.innerHTML+=`
+<div class="product-card">
+<h3>${p.name}</h3>
+<p>${p.desc}</p>
+<a href="${p.link}" target="_blank">
 View Deal
 </a>
 </div>
 `;
 
-productArea.appendChild(card);
-
 });
+
+}catch{
+
+area.innerHTML="Category Failed";
 
 }
 
-
-/* DEFAULT LOAD */
-
-loadCategory("laptops");
+}
