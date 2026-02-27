@@ -1,0 +1,34 @@
+[
+{
+"id":"appsumo-deals",
+"title":"AppSumo Lifetime Deals",
+"category":"lifetime-deals",
+"brand":"AppSumo",
+"price":"One Time Payment",
+"rating":"4.8",
+"redirect":"/go/appsumo.html",
+"badge":"Lifetime Offer"
+},
+
+{
+"id":"stacksocial",
+"title":"StackSocial Software Deals",
+"category":"software-deals",
+"brand":"StackSocial",
+"price":"Discounted",
+"rating":"4.6",
+"redirect":"/go/stacksocial.html",
+"badge":"Hot Deal"
+},
+
+{
+"id":"hostinger-blackfriday",
+"title":"Hostinger Black Friday Offer",
+"category":"hosting-deals",
+"brand":"Hostinger",
+"price":"Up To 80% Off",
+"rating":"4.9",
+"redirect":"/go/hostinger-deal.html",
+"badge":"Limited Time"
+}
+]
