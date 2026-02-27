@@ -1,0 +1,34 @@
+[
+{
+"id":"youtube-partner",
+"title":"YouTube Creator Platform",
+"category":"video-creation",
+"brand":"YouTube",
+"price":"Free",
+"rating":"4.9",
+"redirect":"/go/youtube.html",
+"badge":"Creator Start"
+},
+
+{
+"id":"capcut-pro",
+"title":"CapCut Pro Editor",
+"category":"video-editing",
+"brand":"CapCut",
+"price":"₹599/month",
+"rating":"4.8",
+"redirect":"/go/capcut.html",
+"badge":"Trending"
+},
+
+{
+"id":"epidemic-sound",
+"title":"Epidemic Sound Music License",
+"category":"music-assets",
+"brand":"Epidemic",
+"price":"$15/month",
+"rating":"4.7",
+"redirect":"/go/epidemic.html",
+"badge":"YouTuber Choice"
+}
+]
