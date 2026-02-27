@@ -1,12 +1,12 @@
 [
 {
-"id":"fiverr-services",
+"id":"fiverr",
 "title":"Fiverr Freelance Marketplace",
 "category":"freelancing",
 "brand":"Fiverr",
 "price":"Project Based",
 "rating":"4.6",
-"redirect":"/go/fiverr.html",
+"redirect":"/go/redirect.html?id=fiverr",
 "badge":"Top Platform"
 },
 
@@ -17,7 +17,7 @@
 "brand":"Upwork",
 "price":"Variable",
 "rating":"4.5",
-"redirect":"/go/upwork.html",
+"redirect":"/go/redirect.html?id=upwork",
 "badge":"Global Work"
 },
 
@@ -28,7 +28,7 @@
 "brand":"Namecheap",
 "price":"₹799/year",
 "rating":"4.7",
-"redirect":"/go/namecheap.html",
+"redirect":"/go/redirect.html?id=namecheap-domain",
 "badge":"Essential"
 }
 ]
