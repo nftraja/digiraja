@@ -6,7 +6,7 @@
 "brand":"Hostinger",
 "price":"₹149/month",
 "rating":"4.8",
-"redirect":"/go/hostinger.html",
+"redirect":"/go/redirect.html?id=hostinger-hosting",
 "badge":"High Commission"
 },
 
@@ -17,19 +17,8 @@
 "brand":"Shopify",
 "price":"$29/month",
 "rating":"4.7",
-"redirect":"/go/shopify.html",
+"redirect":"/go/redirect.html?id=shopify",
 "badge":"Recurring Income"
-},
-
-{
-"id":"mailchimp",
-"title":"Mailchimp Email Marketing",
-"category":"email-marketing",
-"brand":"Mailchimp",
-"price":"Free / Paid",
-"rating":"4.6",
-"redirect":"/go/mailchimp.html",
-"badge":"Business Tool"
 },
 
 {
@@ -39,7 +28,7 @@
 "brand":"SEMrush",
 "price":"$129/month",
 "rating":"4.8",
-"redirect":"/go/semrush.html",
+"redirect":"/go/redirect.html?id=semrush",
 "badge":"Pro Tool"
 }
 ]
