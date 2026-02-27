@@ -1,41 +1,121 @@
 [
 {
-"name":"Apple MacBook Air M2",
-"description":"Ultra-thin powerful laptop ideal for creators, students and professionals.",
-"redirect":"/go/macbook-air-m2",
-"source":"amazon",
-"type":"Laptop"
+  "id":"macbook-air-m2",
+
+  "title":"Apple MacBook Air M2 (13-inch, 8GB RAM, 256GB SSD)",
+
+  "brand":"Apple",
+
+  "category":"laptops",
+
+  "price":"₹99,900",
+
+  "rating":"4.8",
+
+  "platform":"Amazon",
+
+  "image":"https://m.media-amazon.com/images/I/71jG+e7roXL._SL1500_.jpg",
+
+  "redirect":"/go/macbook-air-m2.html",
+
+  "badge":"Best Seller",
+
+  "description":"Ultra thin Apple laptop powered by M2 chip ideal for creators, developers and professionals."
 },
 
 {
-"name":"Sony WH-1000XM5 Headphones",
-"description":"Industry leading wireless noise cancelling headphones.",
-"redirect":"/go/sony-xm5",
-"source":"amazon",
-"type":"Audio"
+  "id":"iphone-15",
+
+  "title":"Apple iPhone 15 (128GB)",
+
+  "brand":"Apple",
+
+  "category":"smartphones",
+
+  "price":"₹79,900",
+
+  "rating":"4.7",
+
+  "platform":"Amazon",
+
+  "image":"https://m.media-amazon.com/images/I/71d7rfSl0wL._SL1500_.jpg",
+
+  "redirect":"/go/iphone-15.html",
+
+  "badge":"Trending",
+
+  "description":"Latest Apple smartphone with A16 chip, dynamic island and pro level camera system."
 },
 
 {
-"name":"Logitech MX Master 3S Mouse",
-"description":"Premium productivity mouse for designers and developers.",
-"redirect":"/go/logitech-mx3s",
-"source":"amazon",
-"type":"Accessory"
+  "id":"sony-wh1000xm5",
+
+  "title":"Sony WH-1000XM5 Noise Cancelling Headphones",
+
+  "brand":"Sony",
+
+  "category":"audio",
+
+  "price":"₹29,990",
+
+  "rating":"4.8",
+
+  "platform":"Amazon",
+
+  "image":"https://m.media-amazon.com/images/I/61vIICnUqOL._SL1500_.jpg",
+
+  "redirect":"/go/sony-wh1000xm5.html",
+
+  "badge":"Top Rated",
+
+  "description":"Industry leading noise cancellation headphones with premium sound quality."
 },
 
 {
-"name":"Samsung 27\" 4K Monitor",
-"description":"High resolution monitor perfect for editing and multitasking.",
-"redirect":"/go/samsung-4k-monitor",
-"source":"amazon",
-"type":"Monitor"
+  "id":"logitech-mx-master-3s",
+
+  "title":"Logitech MX Master 3S Wireless Mouse",
+
+  "brand":"Logitech",
+
+  "category":"accessories",
+
+  "price":"₹9,995",
+
+  "rating":"4.9",
+
+  "platform":"Amazon",
+
+  "image":"https://m.media-amazon.com/images/I/61ni3t1ryQL._SL1500_.jpg",
+
+  "redirect":"/go/logitech-mx-master-3s.html",
+
+  "badge":"Creator Choice",
+
+  "description":"Professional productivity mouse designed for developers and designers."
 },
 
 {
-"name":"ASUS TUF Gaming Laptop",
-"description":"High performance gaming laptop built for heavy workloads.",
-"redirect":"/go/asus-tuf-gaming",
-"source":"amazon",
-"type":"Gaming"
+  "id":"samsung-4k-monitor",
+
+  "title":"Samsung 27\" 4K UHD Monitor",
+
+  "brand":"Samsung",
+
+  "category":"monitors",
+
+  "price":"₹32,999",
+
+  "rating":"4.6",
+
+  "platform":"Amazon",
+
+  "image":"https://m.media-amazon.com/images/I/81Zt42ioCgL._SL1500_.jpg",
+
+  "redirect":"/go/samsung-4k-monitor.html",
+
+  "badge":"Work Setup",
+
+  "description":"Ultra HD monitor perfect for productivity, editing and professional workspace."
 }
 ]
