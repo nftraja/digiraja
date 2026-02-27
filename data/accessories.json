@@ -1,0 +1,13 @@
+[
+  {
+    "id": "acc001",
+    "name": "Laptop Accessories Kit",
+    "brand": "Generic",
+    "category": "Accessories",
+    "price": "₹1,299",
+    "tag": "Utility",
+    "rating": "4.2",
+    "affiliate": "https://amazon.in",
+    "platform": "Amazon"
+  }
+]
