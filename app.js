@@ -1,122 +1,165 @@
 /* =====================================================
-   DIGIRAJA – UNIVERSAL STORE ENGINE
+   DIGIRAJA UNIVERSAL STORE ENGINE
    Physical + Digital + SaaS + Deals
+   JSON Driven Affiliate Store
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  const container = document.getElementById("productContainer");
+  /* ===============================
+     DRAWER SYSTEM
+  =============================== */
 
-  if(!container) return;
+  const menuBtn = document.getElementById("menuBtn");
+  const drawer = document.getElementById("drawer");
+  const overlay = document.getElementById("overlay");
 
-  const dataFile = container.dataset.json;
+  if(menuBtn && drawer && overlay){
 
-  if(!dataFile) return;
+    menuBtn.onclick = () => {
+      drawer.classList.toggle("active");
+      overlay.classList.toggle("active");
+      document.body.classList.toggle("no-scroll");
+    };
+
+    overlay.onclick = () => {
+      drawer.classList.remove("active");
+      overlay.classList.remove("active");
+      document.body.classList.remove("no-scroll");
+    };
+  }
 
 
-/* =====================================================
-   FETCH PRODUCTS
-===================================================== */
+  /* ===============================
+     ACTIVE NAV AUTO DETECT
+  =============================== */
 
-fetch(dataFile,{cache:"no-store"})
-.then(res => res.json())
-.then(products => {
+  const currentPath = window.location.pathname;
+  document.querySelectorAll(".bottom-item").forEach(item=>{
+    if(item.getAttribute("href") === currentPath){
+      item.classList.add("active");
+    }
+  });
 
-if(!Array.isArray(products)) return;
 
-renderProducts(products);
+  /* =====================================================
+     🔥 DIGIRAJA DISCOVERY AUTO LOADER
+  ===================================================== */
 
-})
-.catch(err=>{
-console.error("Product Load Error:",err);
+  const storeContainer = document.getElementById("storeContainer");
+
+  if(storeContainer){
+
+    const jsonFile = storeContainer.dataset.json;
+    const category = storeContainer.dataset.category;
+
+    fetch(jsonFile,{cache:"no-store"})
+    .then(res=>res.json())
+    .then(data=>{
+
+      let items = data;
+
+      if(category){
+        items = data.filter(
+          item => item.category === category
+        );
+      }
+
+      if(!items.length){
+        storeContainer.innerHTML =
+        `<div class="glass-card">
+            No Products Found
+         </div>`;
+        return;
+      }
+
+      storeContainer.innerHTML =
+        items.map(productCard).join("");
+
+    })
+    .catch(()=>{
+      storeContainer.innerHTML =
+      `<div class="glass-card">
+          Data Load Failed
+       </div>`;
+    });
+
+  }
+
+
+
+  /* =====================================================
+     PRODUCT CARD UI
+  ===================================================== */
+
+  function productCard(item){
+
+    return `
+    <div class="product-card">
+
+        <div class="product-image">
+            <img src="${item.image}" 
+                 loading="lazy"
+                 alt="${item.title}">
+            ${item.badge ?
+              `<div class="badge">${item.badge}</div>` : ""
+            }
+        </div>
+
+        <div class="product-body">
+
+            <div class="brand">${item.brand || ""}</div>
+
+            <div class="title">
+                ${item.title}
+            </div>
+
+            <div class="rating">
+                ⭐ ${item.rating || "4.5"}
+            </div>
+
+            <div class="price">
+                ${item.price || ""}
+            </div>
+
+            <a href="${item.redirect}"
+               class="buy-btn">
+               Buy Now →
+            </a>
+
+        </div>
+
+    </div>
+    `;
+  }
+
+
+
+  /* =====================================================
+     SAFE EXTERNAL LINKS
+  ===================================================== */
+
+  document.querySelectorAll("a[target='_blank']")
+  .forEach(link=>{
+    link.setAttribute(
+      "rel",
+      "noopener noreferrer"
+    );
+  });
+
 });
 
 
-/* =====================================================
-   PRODUCT RENDER
-===================================================== */
-
-function renderProducts(products){
-
-container.innerHTML = products.map(product => {
-
-const logo = getLogo(product.link);
-const image = getImage(product);
-
-return `
-
-<div class="product-card">
-
-<div class="product-top">
-
-<img 
-src="${image}" 
-loading="lazy"
-onerror="this.src='${logo}'"
->
-
-</div>
-
-<div class="product-body">
-
-<div class="product-title">
-${product.name}
-</div>
-
-<div class="product-desc">
-${product.description}
-</div>
-
-<div class="product-bottom">
-
-<a href="/go/${product.slug}.html"
-class="buy-btn">
-
-View Deal →
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-`;
-
-}).join("");
-
-}
-
 
 /* =====================================================
-   AUTO DOMAIN LOGO FETCH
+   SERVICE WORKER REGISTER
 ===================================================== */
 
-function getLogo(url){
-
-try{
-const domain = new URL(url).hostname;
-return `https://logo.clearbit.com/${domain}`;
-}catch{
-return "";
+if("serviceWorker" in navigator){
+  window.addEventListener("load",()=>{
+    navigator.serviceWorker
+    .register("/sw.js")
+    .then(()=>console.log("DigiRaja SW Ready"))
+    .catch(()=>console.log("SW Failed"));
+  });
 }
-
-}
-
-
-/* =====================================================
-   PRODUCT IMAGE FALLBACK
-===================================================== */
-
-function getImage(product){
-
-if(product.image && product.image !== "")
-return product.image;
-
-return getLogo(product.link);
-
-}
-
-
-});
