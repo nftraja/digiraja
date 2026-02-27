@@ -1,66 +1,45 @@
 [
 {
 "id":"macbook-air-m2",
-"title":"Apple MacBook Air M2 (13-inch, 8GB RAM, 256GB SSD)",
-"brand":"Apple",
+"title":"Apple MacBook Air M2",
 "category":"laptops",
+"brand":"Apple",
 "price":"₹99,900",
 "rating":"4.8",
-"platform":"Amazon",
-"redirect":"/go/macbook-air-m2.html",
-"badge":"Best Seller",
-"description":"Ultra thin Apple laptop powered by M2 chip ideal for creators, developers and professionals."
+"redirect":"/go/redirect.html?id=macbook-air-m2",
+"badge":"Best Seller"
 },
 
 {
 "id":"iphone-15",
-"title":"Apple iPhone 15 (128GB)",
-"brand":"Apple",
+"title":"Apple iPhone 15",
 "category":"smartphones",
+"brand":"Apple",
 "price":"₹79,900",
 "rating":"4.7",
-"platform":"Amazon",
-"redirect":"/go/iphone-15.html",
-"badge":"Trending",
-"description":"Latest Apple smartphone with A16 chip, dynamic island and pro level camera system."
+"redirect":"/go/redirect.html?id=iphone-15",
+"badge":"Trending"
 },
 
 {
-"id":"sony-wh1000xm5",
-"title":"Sony WH-1000XM5 Noise Cancelling Headphones",
-"brand":"Sony",
+"id":"sony-xm5",
+"title":"Sony WH-1000XM5 Headphones",
 "category":"audio",
+"brand":"Sony",
 "price":"₹29,990",
 "rating":"4.8",
-"platform":"Amazon",
-"redirect":"/go/sony-wh1000xm5.html",
-"badge":"Top Rated",
-"description":"Industry leading noise cancellation headphones with premium sound quality."
+"redirect":"/go/redirect.html?id=sony-xm5",
+"badge":"Top Rated"
 },
 
 {
-"id":"logitech-mx-master-3s",
-"title":"Logitech MX Master 3S Wireless Mouse",
-"brand":"Logitech",
+"id":"logitech-mx3s",
+"title":"Logitech MX Master 3S Mouse",
 "category":"accessories",
+"brand":"Logitech",
 "price":"₹9,995",
 "rating":"4.9",
-"platform":"Amazon",
-"redirect":"/go/logitech-mx-master-3s.html",
-"badge":"Creator Choice",
-"description":"Professional productivity mouse designed for developers and designers."
-},
-
-{
-"id":"samsung-4k-monitor",
-"title":"Samsung 27\" 4K UHD Monitor",
-"brand":"Samsung",
-"category":"monitors",
-"price":"₹32,999",
-"rating":"4.6",
-"platform":"Amazon",
-"redirect":"/go/samsung-4k-monitor.html",
-"badge":"Work Setup",
-"description":"Ultra HD monitor perfect for productivity, editing and professional workspace."
+"redirect":"/go/redirect.html?id=logitech-mx3s",
+"badge":"Creator Choice"
 }
 ]
