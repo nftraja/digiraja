@@ -1,0 +1,45 @@
+[
+{
+"id":"udemy-web-dev",
+"title":"Complete Web Development Course",
+"category":"courses",
+"brand":"Udemy",
+"price":"₹499",
+"rating":"4.7",
+"redirect":"/go/udemy-web-dev.html",
+"badge":"Best Seller"
+},
+
+{
+"id":"envato-elements",
+"title":"Envato Elements Subscription",
+"category":"templates",
+"brand":"Envato",
+"price":"₹1,499/month",
+"rating":"4.8",
+"redirect":"/go/envato-elements.html",
+"badge":"Creator Favorite"
+},
+
+{
+"id":"canva-pro",
+"title":"Canva Pro Premium",
+"category":"design-tools",
+"brand":"Canva",
+"price":"₹3,999/year",
+"rating":"4.9",
+"redirect":"/go/canva-pro.html",
+"badge":"Trending"
+},
+
+{
+"id":"wordpress-theme-pack",
+"title":"Premium WordPress Theme Bundle",
+"category":"themes",
+"brand":"ThemeForest",
+"price":"₹2,999",
+"rating":"4.6",
+"redirect":"/go/wp-theme-pack.html",
+"badge":"Popular"
+}
+]
