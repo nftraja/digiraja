@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>DigiRaja – Digital Gear Decision Engine</title>
+<title>DigiRaja — India Digital Gear Decision Engine</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -14,35 +13,45 @@
 
 <body>
 
-<!-- HEADER -->
-<header class="header">
-  <div class="logo">⚡ DigiRaja</div>
+<header class="topbar">
+⚡ DigiRaja
 </header>
 
 
-<!-- HERO CARD -->
+<!-- HERO -->
 <section class="hero-card">
-  <h1>India's Digital Gear Decision Engine</h1>
-  <p>
-    Discover laptops, mobiles, gaming gear, study tools and digital products
-    across multiple platforms — all in one smart store.
-  </p>
+<h1>India's Digital Gear Decision Engine</h1>
+<p>
+Discover laptops, mobiles, gaming gear, study tools,
+digital products and smart buying options across platforms.
+</p>
 </section>
 
 
-<!-- CATEGORY BUTTONS (TEMP) -->
-<div class="category-bar">
-
-<button onclick="loadCategory('laptops')">Laptops</button>
-<button onclick="loadCategory('mobiles')">Mobiles</button>
-<button onclick="loadCategory('headphones')">Headphones</button>
-<button onclick="loadCategory('gaming')">Gaming</button>
-
-</div>
+<!-- CATEGORY GRID -->
+<section class="category-grid" id="category-grid">
+</section>
 
 
-<!-- 🔥 MAIN PRODUCT ENGINE -->
-<div id="product-area"></div>
+<!-- SEARCH STRIP -->
+<section class="search-strip">
+<input type="text" placeholder="Search Product or Brand...">
+</section>
+
+
+<!-- STORE BIO -->
+<section class="store-bio">
+<p>
+DigiRaja helps users discover the right digital products
+based on real needs instead of random marketplace browsing.
+Compare categories, explore configurations and move directly
+to trusted buying platforms.
+</p>
+</section>
+
+
+<!-- PRODUCTS -->
+<section id="product-area"></section>
 
 
 <script src="app.js"></script>
