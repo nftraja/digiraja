@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DigiRaja Category</title>
+
+<link rel="stylesheet" href="/style.css">
+<meta name="theme-color" content="#0f0c0a">
+
+</head>
+
+<body>
+
+<!-- ===============================
+OVERLAY
+=============================== -->
+<div class="drawer-overlay" id="overlay"></div>
+
+<!-- ===============================
+DRAWER
+=============================== -->
+<div class="drawer" id="drawer">
+
+<a href="javascript:history.back()">⬅ Back</a>
+
+<a href="/">🏠 Home</a>
+<a href="/categories.html">📂 Categories</a>
+
+<a href="/category.html?cat=apps">📱 Apps</a>
+<a href="/category.html?cat=tools">🧰 Tools</a>
+<a href="/category.html?cat=services">⚙️ Services</a>
+<a href="/category.html?cat=ai-tools">🤖 AI Tools</a>
+
+</div>
+
+<!-- ===============================
+HEADER
+=============================== -->
+<header class="app-header">
+<button class="menu-btn" id="menuBtn">☰</button>
+<div class="logo" id="categoryTitle">
+Category
+</div>
+</header>
+
+<!-- ===============================
+MAIN
+=============================== -->
+<main class="main-content">
+
+<!-- CATEGORY INTRO -->
+<div class="glass-card">
+<div class="card-title" id="categoryHeading">
+Loading...
+</div>
+
+<div class="card-desc">
+Explore verified platforms, apps, tools and
+digital services within this discovery category.
+</div>
+</div>
+
+<!-- DISCOVERY LIST -->
+<div id="dataContainer"></div>
+
+</main>
+
+
+<!-- ===============================
+BOTTOM NAV
+=============================== -->
+<nav class="bottom-nav">
+
+<a href="/" class="bottom-item">
+<span>🏠</span>
+<small>Home</small>
+</a>
+
+<a href="/categories.html" class="bottom-item">
+<span>📂</span>
+<small>Categories</small>
+</a>
+
+<a href="/category.html?cat=apps"
+class="bottom-item">
+<span>📱</span>
+<small>Apps</small>
+</a>
+
+<a href="/category.html?cat=tools"
+class="bottom-item">
+<span>🧰</span>
+<small>Tools</small>
+</a>
+
+<a href="/category.html?cat=ai-tools"
+class="bottom-item">
+<span>🤖</span>
+<small>AI</small>
+</a>
+
+</nav>
+
+<script src="/app.js"></script>
+
+
+<!-- ===============================
+CATEGORY LOADER
+=============================== -->
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+const params = new URLSearchParams(window.location.search);
+let category = params.get("cat");
+
+if(!category){
+
+document.getElementById("categoryHeading")
+.innerText="Invalid Category";
+
+return;
+}
+
+category = category.toLowerCase().trim();
+
+document.getElementById("categoryTitle")
+.innerText = category;
+
+document.getElementById("categoryHeading")
+.innerText = category;
+
+
+/* ===========================
+LOAD CATEGORY JSON
+=========================== */
+
+fetch(`/data/${category}.json`,{
+cache:"no-store"
+})
+
+.then(res=>{
+if(!res.ok) throw new Error("JSON missing");
+return res.json();
+})
+
+.then(data=>{
+
+if(!Array.isArray(data)) return;
+
+document.getElementById("dataContainer")
+.innerHTML = data.map(item=>`
+
+<div class="list-card"
+onclick="window.open('${item.link}','_blank')">
+
+<div class="list-title">
+${item.name}
+</div>
+
+<div class="list-desc">
+${item.description}
+</div>
+
+<div class="btn">
+Open Platform
+</div>
+
+</div>
+
+`).join("");
+
+})
+
+.catch(()=>{
+
+document.getElementById("dataContainer")
+.innerHTML=
+'<div class="list-card"><div class="list-title">No Data Found</div></div>';
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
