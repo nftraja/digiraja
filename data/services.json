@@ -1,0 +1,34 @@
+[
+{
+"id":"fiverr-services",
+"title":"Fiverr Freelance Marketplace",
+"category":"freelancing",
+"brand":"Fiverr",
+"price":"Project Based",
+"rating":"4.6",
+"redirect":"/go/fiverr.html",
+"badge":"Top Platform"
+},
+
+{
+"id":"upwork",
+"title":"Upwork Hiring Platform",
+"category":"remote-work",
+"brand":"Upwork",
+"price":"Variable",
+"rating":"4.5",
+"redirect":"/go/upwork.html",
+"badge":"Global Work"
+},
+
+{
+"id":"namecheap-domain",
+"title":"Namecheap Domain Registration",
+"category":"domains",
+"brand":"Namecheap",
+"price":"₹799/year",
+"rating":"4.7",
+"redirect":"/go/namecheap.html",
+"badge":"Essential"
+}
+]
