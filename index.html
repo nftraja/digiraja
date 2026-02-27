@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 
@@ -7,105 +7,89 @@
 
 <title>DigiRaja Store</title>
 
-<meta name="description"
-content="Discover best physical products, digital tools, SaaS platforms and online services in one smart affiliate discovery store.">
-
 <link rel="stylesheet" href="/style.css">
-<meta name="theme-color" content="#0f0c0a">
 
 </head>
 
 <body>
 
-<!-- ================= DRAWER ================= -->
-
+<!-- OVERLAY -->
 <div class="drawer-overlay" id="overlay"></div>
 
+<!-- DRAWER -->
 <div class="drawer" id="drawer">
 
 <a href="/">🏠 Home</a>
-
-<a href="/category.html?type=physical">📦 Physical Products</a>
-<a href="/category.html?type=digital">💻 Digital Products</a>
-<a href="/category.html?type=saas">☁ SaaS Tools</a>
-<a href="/category.html?type=services">🧰 Services</a>
-<a href="/category.html?type=creator">🎬 Creator Tools</a>
-<a href="/category.html?type=deals">🔥 Deals</a>
-
-<a href="/pages/about.html">ℹ About</a>
-<a href="/pages/contact.html">✉ Contact</a>
-<a href="/pages/privacy.html">🔒 Privacy</a>
-<a href="/pages/disclaimer.html">⚠ Disclaimer</a>
+<a href="/category.html?cat=physical">📦 Physical</a>
+<a href="/category.html?cat=digital">💻 Digital</a>
+<a href="/category.html?cat=saas">☁ SaaS</a>
+<a href="/category.html?cat=services">🧰 Services</a>
+<a href="/category.html?cat=creator">🎬 Creator</a>
+<a href="/category.html?cat=deals">🔥 Deals</a>
 
 </div>
 
-<!-- ================= HEADER ================= -->
-
+<!-- HEADER -->
 <header class="app-header">
-
 <button class="menu-btn" id="menuBtn">☰</button>
-
-<div class="logo">
-DigiRaja Store
-</div>
-
+<div class="logo">DigiRaja Store</div>
 </header>
 
 
-<!-- ================= MAIN ================= -->
-
 <main class="main-content">
 
-<!-- HERO -->
+<!-- ======================
+STORE INTRO
+====================== -->
 
 <div class="glass-card">
-<div class="card-title">
-🛒 Discover Smart Products & Tools
-</div>
+<div class="card-title">🛒 Discover Digital & Physical Products</div>
 
 <div class="card-desc">
-Explore curated physical gadgets, digital assets,
-software tools and online services — all in one
-powerful discovery marketplace.
+Explore verified tools, gadgets, software,
+services and exclusive affiliate deals —
+all structured in one smart discovery store.
 </div>
 </div>
 
 
-<!-- ================= CATEGORY GRID ================= -->
+<!-- ======================
+MAIN CATEGORIES
+====================== -->
 
 <div class="grid">
 
-<a href="/category.html?type=physical"
+<a href="/category.html?cat=physical"
 class="category-box">
 <span>📦</span>
 Physical Products
 </a>
 
-<a href="/category.html?type=digital"
+<a href="/category.html?cat=digital"
 class="category-box">
 <span>💻</span>
 Digital Products
 </a>
 
-<a href="/category.html?type=saas"
+<a href="/category.html?cat=saas"
 class="category-box">
 <span>☁</span>
 SaaS Tools
 </a>
 
-<a href="/category.html?type=services"
+<a href="/category.html?cat=services"
 class="category-box">
 <span>🧰</span>
 Services
 </a>
 
-<a href="/category.html?type=creator"
+<a href="/category.html?cat=creator"
 class="category-box">
 <span>🎬</span>
 Creator Tools
 </a>
 
-<a href="/category.html?type=deals"
+<a href="/category.html?cat=deals"
 class="category-box">
 <span>🔥</span>
 Best Deals
@@ -114,23 +98,59 @@ Best Deals
 </div>
 
 
-<!-- ================= AUTO PRODUCTS ================= -->
+<!-- ======================
+DISCOVERY SECTION
+====================== -->
 
 <div class="glass-card">
-<div class="card-title">
-🔥 Popular Products
-</div>
+<div class="card-title">🔥 Discover Store</div>
 </div>
 
-<div id="storeContainer"
-data-json="/data/physical.json">
+
+<div class="list-card">
+<div class="list-title">🔥 Popular Products</div>
+
+<div class="list-desc">
+Most visited and high conversion products
+chosen by users across DigiRaja Store.
 </div>
 
+<a href="/category.html?cat=popular"
+class="btn">Explore</a>
+</div>
+
+
+<div class="list-card">
+<div class="list-title">📈 Trending Now</div>
+
+<div class="list-desc">
+Currently trending tools, gadgets and
+digital platforms gaining attention.
+</div>
+
+<a href="/category.html?cat=trending"
+class="btn">View</a>
+</div>
+
+
+<div class="list-card">
+<div class="list-title">⭐ Editor Choice</div>
+
+<div class="list-desc">
+Handpicked premium recommendations
+selected for performance and value.
+</div>
+
+<a href="/category.html?cat=editor"
+class="btn">Discover</a>
+</div>
 
 </main>
 
 
-<!-- ================= BOTTOM NAV ================= -->
+<!-- ======================
+BOTTOM NAV
+====================== -->
 
 <nav class="bottom-nav">
 
@@ -139,25 +159,25 @@ data-json="/data/physical.json">
 <small>Home</small>
 </a>
 
-<a href="/category.html?type=physical"
+<a href="/category.html?cat=physical"
 class="bottom-item">
 <span>📦</span>
 <small>Store</small>
 </a>
 
-<a href="/category.html?type=digital"
+<a href="/category.html?cat=digital"
 class="bottom-item">
 <span>💻</span>
 <small>Digital</small>
 </a>
 
-<a href="/category.html?type=saas"
+<a href="/category.html?cat=saas"
 class="bottom-item">
 <span>☁</span>
 <small>SaaS</small>
 </a>
 
-<a href="/category.html?type=deals"
+<a href="/category.html?cat=deals"
 class="bottom-item">
 <span>🔥</span>
 <small>Deals</small>
