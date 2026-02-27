@@ -1,109 +1,270 @@
-body{
+/* ===============================
+DIGIRAJA – DIGITAL STORE UI
+India's Digital Gear Decision Engine
+=============================== */
+
+*{
 margin:0;
-font-family:system-ui;
-background:#0b0b0b;
-color:white;
+padding:0;
+box-sizing:border-box;
+font-family:system-ui,-apple-system,Segoe UI,Roboto;
 }
 
-/* HEADER */
+body{
+background:#070909;
+color:#e5e7eb;
+overflow-x:hidden;
+}
 
-.topbar{
+
+/* ===============================
+HEADER
+=============================== */
+
+.header{
+position:sticky;
+top:0;
+z-index:1000;
+background:#0b0f0e;
 padding:14px;
 text-align:center;
-font-weight:700;
-color:#00ff88;
-border-bottom:1px solid rgba(0,255,136,.3);
+border-bottom:1px solid rgba(0,255,136,.2);
 }
 
-/* HERO */
+.logo{
+font-size:18px;
+font-weight:700;
+color:#00ff88;
+}
 
-.hero-card{
+
+/* ===============================
+HERO CARD
+=============================== */
+
+.hero{
 margin:12px;
-padding:30px 16px;
-border-radius:18px;
-background:rgba(255,255,255,.05);
+padding:18px;
+border-radius:16px;
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,.06),
+rgba(255,255,255,.02)
+);
+
+border:1px solid rgba(0,255,136,.25);
 text-align:center;
 }
 
-.hero-card h1{
+.hero h1{
+font-size:18px;
 color:#00ff88;
-font-size:20px;
+margin-bottom:6px;
 }
 
-/* CATEGORY GRID */
+.hero p{
+font-size:13px;
+color:#cbd5e1;
+}
+
+
+/* ===============================
+CATEGORY GRID
+=============================== */
 
 .category-grid{
 display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px;
-padding:10px;
+gap:12px;
+padding:12px;
+
+/* MOBILE */
+grid-template-columns:repeat(3,1fr);
 }
 
+/* TABLET */
+@media(min-width:768px){
+.category-grid{
+grid-template-columns:repeat(4,1fr);
+}
+}
+
+/* LARGE DESKTOP */
+@media(min-width:1200px){
+.category-grid{
+grid-template-columns:repeat(5,1fr);
+}
+}
+
+
+/* ===============================
+CATEGORY CARD
+=============================== */
+
 .category-card{
+
 aspect-ratio:1/1;
+
 display:flex;
+flex-direction:column;
 align-items:center;
 justify-content:center;
+
 border-radius:16px;
-background:rgba(255,255,255,.04);
-border:1px solid rgba(0,255,136,.3);
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,.05),
+rgba(255,255,255,.01)
+);
+
+border:1px solid rgba(0,255,136,.25);
+
+font-size:13px;
+font-weight:600;
+
+transition:.25s;
 cursor:pointer;
-transition:.3s;
 }
 
 .category-card:hover{
+transform:translateY(-4px);
 background:rgba(0,255,136,.12);
+box-shadow:0 0 18px rgba(0,255,136,.25);
 }
 
-/* SEARCH */
 
-.search-strip{
-margin:12px;
-}
+/* ===============================
+PRODUCT AREA
+=============================== */
 
-.search-strip input{
-width:100%;
+#product-area{
 padding:14px;
-border-radius:14px;
-border:none;
-background:#111;
-color:white;
 }
 
-/* BIO */
+
+/* ===============================
+PRODUCT CARD
+=============================== */
+
+.product-card{
+
+margin-bottom:14px;
+padding:16px;
+
+border-radius:16px;
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,.05),
+rgba(255,255,255,.02)
+);
+
+border:1px solid rgba(0,255,136,.25);
+}
+
+.product-title{
+font-size:15px;
+font-weight:600;
+margin-bottom:6px;
+color:#fff;
+}
+
+.product-spec{
+font-size:13px;
+color:#cbd5e1;
+margin-bottom:10px;
+}
+
+.buy-btn{
+display:inline-block;
+padding:8px 18px;
+border-radius:20px;
+
+background:#00ff88;
+color:#000;
+font-weight:600;
+font-size:13px;
+text-decoration:none;
+}
+
+.buy-btn:hover{
+background:#34d399;
+}
+
+
+/* ===============================
+SEARCH CARD
+=============================== */
+
+.search-card{
+margin:12px;
+padding:16px;
+border-radius:16px;
+border:1px solid rgba(0,255,136,.25);
+background:rgba(255,255,255,.04);
+}
+
+.search-input{
+width:100%;
+padding:10px;
+border-radius:10px;
+border:none;
+outline:none;
+background:#0b0f0e;
+color:#fff;
+}
+
+
+/* ===============================
+STORE BIO
+=============================== */
 
 .store-bio{
 margin:12px;
 padding:18px;
 border-radius:16px;
-background:rgba(255,255,255,.04);
-}
-
-/* PRODUCTS */
-
-#product-area{
-padding:12px;
-}
-
-.product-card{
-padding:14px;
-margin-bottom:10px;
-border-radius:14px;
-background:rgba(255,255,255,.05);
 border:1px solid rgba(0,255,136,.25);
+background:rgba(255,255,255,.04);
+font-size:13px;
+line-height:1.6;
+color:#cbd5e1;
 }
 
-.product-card h3{
-margin:0 0 6px;
-color:#00ff88;
+
+/* ===============================
+SCROLLBAR
+=============================== */
+
+::-webkit-scrollbar{
+width:6px;
 }
 
-.product-card a{
-display:inline-block;
-margin-top:8px;
-padding:6px 14px;
-border-radius:20px;
-text-decoration:none;
-color:#7fffd4;
-border:1px solid #00ff88;
+::-webkit-scrollbar-thumb{
+background:#00ff88;
+border-radius:10px;
+}
+
+
+/* ===============================
+ANIMATION
+=============================== */
+
+.category-card,
+.product-card{
+animation:fadeIn .4s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(10px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
