@@ -1,73 +1,57 @@
-const BASE_PATH="/digiraja/";
+import { UI } from "./core/ui.js";
 
+/* -----------------------------
+   GET CATEGORY FROM URL
+------------------------------*/
 
-/* CATEGORY MASTER */
+function getCategory(){
 
-const categories=[
-"laptops",
-"mobiles",
-"headphones",
-"gaming",
-"cameras",
-"tablets",
-"smartwatches",
-"studygear",
-"accessories"
-];
+ const params =
+   new URLSearchParams(window.location.search);
 
-
-const grid=document.getElementById("category-grid");
-
-categories.forEach(cat=>{
-
-const div=document.createElement("div");
-
-div.className="category-card";
-div.innerText=cat.toUpperCase();
-
-div.onclick=()=>loadCategory(cat);
-
-grid.appendChild(div);
-
-});
-
-
-/* LOAD PRODUCTS */
-
-async function loadCategory(category){
-
-const area=document.getElementById("product-area");
-
-area.innerHTML="Loading...";
-
-try{
-
-const res=await fetch(
-BASE_PATH+"data/"+category+".json"
-);
-
-const data=await res.json();
-
-area.innerHTML="";
-
-data.products.forEach(p=>{
-
-area.innerHTML+=`
-<div class="product-card">
-<h3>${p.name}</h3>
-<p>${p.desc}</p>
-<a href="${p.link}" target="_blank">
-View Deal
-</a>
-</div>
-`;
-
-});
-
-}catch{
-
-area.innerHTML="Category Failed";
-
+ return params.get("cat") || "editing";
 }
 
+/* -----------------------------
+   LOAD CATEGORY DATA
+------------------------------*/
+
+async function loadApps(){
+
+ const category = getCategory();
+
+ const res =
+   await fetch(`./data/${category}.json`);
+
+ const apps = await res.json();
+
+ render(apps, category);
 }
+
+/* -----------------------------
+   LOAD CATEGORY MENU
+------------------------------*/
+
+async function loadCategories(){
+
+ const res =
+   await fetch("./data/categories.json");
+
+ return await res.json();
+}
+
+/* -----------------------------
+   RENDER APP
+------------------------------*/
+
+async function render(apps, activeCat){
+
+ const categories = await loadCategories();
+
+ document.getElementById("app").innerHTML =
+   UI.navbar(categories, activeCat) +
+   UI.grid(apps) +
+   UI.footer();
+}
+
+loadApps();
